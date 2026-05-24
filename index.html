@@ -50,21 +50,131 @@ nav{
 .nav-links a:hover{color:var(--ink)}
 
 /* ─── HERO ─── */
-#hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:0 4rem 6rem;overflow:hidden}
-.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--border) 1px, transparent 1px),linear-gradient(90deg, var(--border) 1px, transparent 1px);background-size:64px 64px}
-#dna-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0.22;pointer-events:none}
-.hero-content{position:relative;z-index:2;max-width:900px}
-.hero-eyebrow{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.22em;color:var(--dust);text-transform:uppercase;margin-bottom:2.5rem;opacity:0;animation:rise 1.1s ease 0.4s forwards}
-.hero-name{font-size:clamp(4rem,8vw,7.5rem);font-weight:400;line-height:0.95;letter-spacing:-0.025em;color:var(--graphite);margin-bottom:2rem;opacity:0;animation:rise 1.1s ease 0.7s forwards}
-.hero-name em{font-style:italic;color:var(--gold)}
-.hero-tagline{font-size:clamp(1.05rem,2vw,1.3rem);font-style:italic;color:var(--smoke);line-height:1.7;max-width:580px;margin-bottom:4rem;opacity:0;animation:rise 1.1s ease 1s forwards}
-.hero-footer{display:flex;gap:4rem;align-items:flex-end;opacity:0;animation:rise 1.1s ease 1.3s forwards}
-.hero-meta{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.1em;color:var(--dust);text-transform:uppercase;line-height:1.9}
-.hero-meta strong{display:block;color:var(--ash);margin-bottom:0.1rem}
-.hero-scroll-hint{position:absolute;bottom:2rem;right:4rem;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.18em;color:var(--dust);text-transform:uppercase;display:flex;align-items:center;gap:1rem;opacity:0;animation:fade 2s ease 2.2s forwards}
-.hero-scroll-hint::before{content:'';width:50px;height:0.5px;background:var(--dust)}
-@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes fade{from{opacity:0}to{opacity:1}}
+#hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+  overflow: hidden;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  z-index: 1;
+}
+#dna-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  /* মেইল ও লিংক একদম ডানে নেওয়ার জন্য max-width তুলে দেওয়া হলো */
+  margin-top: 5rem;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--ash);
+  text-transform: uppercase;
+  margin-bottom: 3.5rem;
+  opacity: 0;
+  animation: rise 1.1s ease 0.4s forwards;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.hero-name {
+  font-size: clamp(4rem, 7.5vw, 6.8rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--graphite);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: rise 1.1s ease 0.7s forwards;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-tagline {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--smoke);
+  line-height: 1.8;
+  max-width: 600px;
+  margin-bottom: 4.5rem;
+  opacity: 0;
+  animation: rise 1.1s ease 1s forwards;
+}
+.hero-footer {
+  display: flex;
+  gap: 5rem;
+  align-items: flex-end;
+  opacity: 0;
+  animation: rise 1.1s ease 1.3s forwards;
+  border-top: 0.5px solid var(--border);
+  padding-top: 2rem;
+}
+.hero-meta {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--dust);
+  text-transform: uppercase;
+  line-height: 2;
+}
+.hero-meta strong {
+  display: block;
+  color: var(--ash);
+  margin-bottom: 0.2rem;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 4rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--dust);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  animation: fade 2s ease 2.2s forwards;
+  z-index: 10;
+}
+.hero-scroll-hint::before {
+  content: '';
+  width: 50px;
+  height: 0.5px;
+  background: var(--dust);
+}
+
+a.hero-scroll-hint[href*="pdf"] {
+  bottom: 5rem;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a.hero-scroll-hint[href*="pdf"]:hover {
+  color: var(--ink);
+}
 
 /* ─── SHARED & SECTIONS ─── */
 section{padding:8rem 4rem}
@@ -89,20 +199,34 @@ hr.div{border:none;border-top:0.5px solid var(--border);margin:0}
 .bangla-box{margin-top:2.5rem;background:var(--ivory);padding:2.5rem;border:0.5px solid var(--border)}
 .bangla-text{font-family:var(--bangla);font-size:1.02rem;line-height:2.1;color:var(--smoke)}
 
+/* ─── TIMELINE ─── */
+#timeline { background: var(--paper); }
+.timeline-container { position: relative; max-width: 850px; margin: 0 auto; padding: 1rem 0; }
+.timeline-container::before { content: ''; position: absolute; left: 40px; top: 0; bottom: 0; width: 0.5px; background: var(--border-md); }
+.timeline-entry { position: relative; padding-left: 90px; margin-bottom: 4rem; }
+.timeline-entry:last-child { margin-bottom: 1rem; }
+.timeline-dot { position: absolute; left: 37px; top: 8px; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 8px var(--gold); }
+.timeline-time { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
+.timeline-title { font-size: 1.25rem; font-weight: 400; color: var(--graphite); margin-bottom: 0.5rem; }
+.timeline-institution { font-family: var(--mono); font-size: 0.6rem; color: var(--dust); text-transform: uppercase; margin-bottom: 0.75rem; }
+.timeline-body { font-size: 0.92rem; color: var(--smoke); line-height: 1.8; }
+
 /* ─── DYNAMIC CARDS & GRIDS ─── */
 .dynamic-grid-3{display:grid;grid-template-columns:repeat(3,1fr);border:0.5px solid var(--border)}
 .dynamic-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;background:var(--border)}
 
 /* Research Cards */
 #research {background:var(--ivory)}
-.r-card{padding:2.5rem;border-right:0.5px solid var(--border);border-bottom:0.5px solid var(--border);transition:background 0.4s;background:var(--ivory)}
+.r-card{padding:2.5rem;border-right:0.5px solid var(--border);border-bottom:0.5px solid var(--border);transition:background 0.4s;background:var(--ivory); display:flex; flex-direction:column; justify-content:space-between;}
 #home-view .r-card{background: transparent;}
 .r-card:hover{background:rgba(245,239,226,0.04)!important}
 .r-card:nth-child(3n){border-right:none}
-.r-num{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.22em;color:var(--dust);margin-bottom:1.8rem}
+.r-num{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.22em;color:var(--dust);margin-bottom:1.8rem; display:flex; justify-content:space-between; align-items:center;}
+.r-status { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.55rem; color: var(--gold); border: 0.5px solid var(--gold-dim); padding: 0.1rem 0.4rem; }
 .r-title{font-size:1.1rem;line-height:1.35;color:var(--graphite);margin-bottom:1rem;font-weight:400}
-.r-desc{font-size:0.88rem;line-height:1.75;color:var(--ash)}
-.r-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:2rem}
+.r-desc{font-size:0.88rem;line-height:1.75;color:var(--ash); flex-grow:1;}
+.r-methodology { margin-top: 1.2rem; font-size: 0.82rem; font-style: italic; color: var(--dust); border-top: 0.5px dashed var(--border); padding-top: 0.6rem; }
+.r-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.8rem}
 .r-tag{font-family:var(--mono);font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;border:0.5px solid var(--border-md);padding:0.22rem 0.55rem;color:var(--dust)}
 
 /* Writings / Publication Items */
@@ -128,7 +252,22 @@ hr.div{border:none;border-top:0.5px solid var(--border);margin:0}
 .poster-link{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;text-decoration:none;margin-top:auto;transition:color 0.3s}
 .poster-link:hover{color:var(--graphite)}
 
-/* ─── ART & PHOTOGRAPHY ─── */
+/* NOW & READING LIST */
+#now-reading { background: var(--ivory); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.now-box { background: var(--paper); border: 0.5px solid var(--border); padding: 3rem; }
+.now-status-pulse { display: inline-block; width: 6px; height: 6px; background: #5a9e66; border-radius: 50%; margin-right: 0.5rem; box-shadow: 0 0 8px #5a9e66; }
+.now-list { list-style: none; margin-top: 1.5rem; }
+.now-list li { font-size: 0.95rem; color: var(--smoke); margin-bottom: 1rem; padding-left: 1.2rem; position: relative; }
+.now-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold-dim); }
+.reading-item { border-bottom: 0.5px solid var(--border); padding: 1.2rem 0; display: flex; justify-content: space-between; align-items: center; }
+.reading-item:last-child { border-bottom: none; }
+.reading-info { max-width: 75%; }
+.reading-title { font-size: 1.05rem; font-style: italic; color: var(--graphite); }
+.reading-author { font-family: var(--mono); font-size: 0.6rem; color: var(--dust); text-transform: uppercase; margin-top: 0.2rem; }
+.reading-status { font-family: var(--mono); font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.5rem; border: 0.5px solid var(--border-md); color: var(--ash); }
+.reading-status.active { color: var(--gold); border-color: var(--gold-dim); background: rgba(138,111,50,0.05); }
+
+/* ART & PHOTOGRAPHY */
 #art{background:var(--paper)}
 .art-intro{font-size:1.05rem;font-style:italic;color:var(--ash);line-height:1.75;max-width:620px;margin-bottom:1rem}
 .art-series-title{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;color:var(--gold-dim);text-transform:uppercase;margin:3.5rem 0 1.5rem;padding-bottom:1rem;border-bottom:0.5px solid var(--border)}
@@ -146,7 +285,7 @@ hr.div{border:none;border-top:0.5px solid var(--border);margin:0}
 .art-cell.placeholder{display:flex;align-items:center;justify-content:center;background:transparent;border:0.5px dashed rgba(245,239,226,0.06)}
 .art-cell.placeholder .ph-inner{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.14em;color:var(--dust);text-transform:uppercase;text-align:center;line-height:2.2;opacity:0.5}
 
-/* ─── NOTEBOOK ─── */
+/* NOTEBOOK */
 #notebook{background:var(--ivory)}
 .nb-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem}
 .nb-status{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;color:var(--dust);text-transform:uppercase}
@@ -161,14 +300,14 @@ hr.div{border:none;border-top:0.5px solid var(--border);margin:0}
 .nb-large{font-size:1.85rem;font-style:italic;line-height:1.25;color:var(--graphite);flex:1;display:flex;align-items:center}
 .nb-formula{font-family:var(--mono);font-size:0.72rem;color:var(--dust);margin-top:1.8rem;padding-top:1.2rem;border-top:0.5px solid var(--border)}
 
-/* ─── MANIFESTO ─── */
+/* MANIFESTO */
 #manifesto{background:var(--paper);padding:9rem 4rem}
 .manifesto-inner{max-width:760px;margin:0 auto}
 .m-num{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;color:var(--dust);text-transform:uppercase;margin-bottom:0.6rem;margin-top:3.5rem}
 .m-body{font-size:1.15rem;line-height:2;color:var(--smoke)}
 .m-break{font-size:1.7rem;font-style:italic;line-height:1.45;color:var(--graphite);margin:3.5rem 0;border-left:1.5px solid var(--gold-dim);padding-left:2rem}
 
-/* ─── CINEMA & SOUND ─── */
+/* CINEMA & SOUND */
 #cinema{background:var(--ivory)}
 .cinema-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:1rem}
 .cinema-col-label{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.18em;color:var(--dust);text-transform:uppercase;margin-bottom:2rem;padding-bottom:1rem;border-bottom:0.5px solid var(--border)}
@@ -179,9 +318,7 @@ hr.div{border:none;border-top:0.5px solid var(--border);margin:0}
 .wave-container{background:var(--paper);height:100px;display:flex;align-items:center;padding:0 1.5rem;gap:2px;margin-top:2rem;overflow:hidden;border:0.5px solid var(--border)}
 .wbar{flex:1;background:rgba(138,111,50,0.28);border-radius:1px;min-height:3px}
 
-/* ═══════════════════════════════════════════════
-   DYNAMIC ARCHIVE VIEW STYLES & PRESTIGE ANIMATION
-   ═══════════════════════════════════════════════ */
+/* DYNAMIC ARCHIVE VIEW STYLES & PRESTIGE ANIMATION */
 .inner-header { padding: 10rem 4rem 4rem; }
 .breadcrumb { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ash); margin-bottom: 1.5rem; }
 .breadcrumb span { color: var(--dust); cursor: pointer; transition: color 0.3s; }
@@ -196,25 +333,24 @@ hr.div{border:none;border-top:0.5px solid var(--border);margin:0}
 #dynamic-archive-section { padding: 0 4rem 8rem; }
 .no-results { grid-column: span 3; text-align: center; padding: 6rem 2rem; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--dust); text-transform: uppercase; border: 0.5px dashed var(--border); }
 
-/* ─── SPA VIEW TRANSITION ANIMATION ─── */
-.view-fade-in {
-  animation: viewFadeIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-@keyframes viewFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px) scale(0.99);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
+.view-fade-in { animation: viewFadeIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+@keyframes viewFadeIn { from { opacity: 0; transform: translateY(15px) scale(0.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
 /* ─── FOOTER ─── */
-footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:flex-end}
-.footer-sig{font-size:2rem;font-style:italic;color:var(--ash)}
-.footer-info{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--dust);text-transform:uppercase;text-align:right;line-height:1.9}
+footer {
+  padding: 3.5rem 4rem;
+  border-top: 0.5px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-sig {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:1100px){
@@ -228,6 +364,9 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
   #about{grid-template-columns:1fr}
   .dynamic-grid-3, .dynamic-grid-2, .nb-grid, .art-grid{grid-template-columns:1fr}
   .r-card:nth-child(n){border-right:none}
+  .timeline-container::before { left: 15px; }
+  .timeline-entry { padding-left: 45px; }
+  .timeline-dot { left: 12px; }
   .nb-card.wide, .art-cell.wide{grid-column:span 1}
   .art-cell.tall{grid-row:span 1}
   .cinema-grid{grid-template-columns:1fr}
@@ -237,6 +376,15 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
   footer{flex-direction:column;gap:2rem}
   .footer-info{text-align:left}
 }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 </style>
 </head>
 <body>
@@ -244,14 +392,16 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
 <nav>
   <div class="nav-brand" onclick="showHomeView()"><em>Uday</em> — Research Archive</div>
   <ul class="nav-links">
-    <li><a href="#about" onclick="showHomeView()">About</a></li>
-    <li><a href="#research" onclick="showHomeView()">Research</a></li>
-    <li><a href="#publications" onclick="showHomeView()">Writings</a></li>
-    <li><a href="#posters" onclick="showHomeView()">Presentations</a></li>
-    <li><a href="#art" onclick="showHomeView()">Art & Photo</a></li>
-    <li><a href="#notebook" onclick="showHomeView()">Notebook</a></li>
-    <li><a href="#manifesto" onclick="showHomeView()">Manifesto</a></li>
-    <li><a href="#cinema" onclick="showHomeView()">Cinema & Sound</a></li>
+    <li><a href="#about" onclick="showHomeView('about'); return false;">About</a></li>
+    <li><a href="#timeline" onclick="showHomeView('timeline'); return false;">Timeline</a></li>
+    <li><a href="#research" onclick="showHomeView('research'); return false;">Research</a></li>
+    <li><a href="#publications" onclick="showHomeView('publications'); return false;">Writings</a></li>
+    <li><a href="#now-reading" onclick="showHomeView('now-reading'); return false;">Now</a></li>
+    <li><a href="#posters" onclick="showHomeView('posters'); return false;">Presentations</a></li>
+    <li><a href="#art" onclick="showHomeView('art'); return false;">Art & Photo</a></li>
+    <li><a href="#notebook" onclick="showHomeView('notebook'); return false;">Notebook</a></li>
+    <li><a href="#manifesto" onclick="showHomeView('manifesto'); return false;">Manifesto</a></li>
+    <li><a href="#cinema" onclick="showHomeView('cinema'); return false;">Cinema & Sound</a></li>
   </ul>
 </nav>
 
@@ -259,16 +409,28 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
   <section id="hero">
     <div class="hero-grid"></div>
     <canvas id="dna-canvas"></canvas>
+    
     <div class="hero-content">
-      <div class="hero-eyebrow"> জীবন · বিবর্তন · চিন্তা &nbsp;/&nbsp; Life · Evolution · Thought</div>
+      <div class="hero-eyebrow">
+        <div>জীবন · বিবর্তন · চিন্তা / Life · Evolution · Thought</div>
+        <div style="display: flex; gap: 2rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.12em;">
+          <a href="udaysaha4080@gmail.com" target="_blank" style="color: var(--gold); text-decoration: none; transition: color 0.3s;">Mail</a>
+          <a href="https://www.facebook.com/share/17pLVmzGKj/?mibextid=wwXIfr" target="_blank" style="color: var(--gold); text-decoration: none; transition: color 0.3s;">Facebook</a>
+          <a href="https://github.com/udaysaha4080-design" target="_blank" style="color: var(--gold); text-decoration: none; transition: color 0.3s;">GitHub</a>
+        </div>
+      </div>
+
       <h1 class="hero-name">Uday<br><em>Researches</em><br>the living.</h1>
       <p class="hero-tagline">Between mutation and metaphysics — building a lifetime theory of biological complexity, evolutionary memory, and the emergence of consciousness from molecular noise.</p>
+
       <div class="hero-footer">
-        <div class="hero-meta"><strong>Domain</strong>Genetic Engineering &amp; Biotechnology</div>
-        <div class="hero-meta"><strong>Institute</strong>Daffodil International University</div>
-        <div class="hero-meta"><strong>Location</strong>Dhaka, Bangladesh</div>
+        <div class="hero-meta"><strong>DOMAIN</strong>GENETIC ENGINEERING & BIOTECHNOLOGY</div>
+        <div class="hero-meta"><strong>INSTITUTE</strong>DAFFODIL INTERNATIONAL UNIVERSITY</div>
+        <div class="hero-meta"><strong>LOCATION</strong>DHAKA, BANGLADESH</div>
       </div>
     </div>
+
+    <a href="my-cv.pdf" target="_blank" class="hero-scroll-hint">View CV</a>
     <div class="hero-scroll-hint">Scroll to enter</div>
   </section>
   <hr class="div">
@@ -277,9 +439,10 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
     <div class="about-left reveal">
       <div class="sec-label">§ 01 — Biography</div>
       <h2 class="sec-heading" style="margin-bottom:3rem">A mind shaped<br>by <em>questions</em>,<br>not answers.</h2>
-      <p class="about-text">Uday is a researcher at the intersection of genetics, evolutionary biology, and theoretical thought. He is not merely learning biology — he is constructing a personal cosmology of life.</p>
-      <blockquote class="about-pull">"Science, for me, is a form of slow attention — the discipline of noticing what life is actually doing."</blockquote>
-      <p class="about-text">His academic roots lie in Genetic Engineering and Biotechnology at Daffodil International University, Dhaka. But his intellectual territory extends far beyond institutional boundaries.</p>
+      <p class="about-text">Uday is a researcher at the intersection of genetics, evolutionary biology, and theoretical thought. He is not merely learning biology — he is constructing a personal cosmology of life: how organisms remember across generations, how mutations sculpt populations across millennia, how consciousness might emerge from the molecular choreography of living systems.</p>
+      <blockquote class="about-pull">"Science, for me, is a form of slow attention — the discipline of noticing what life is actually doing,beneath the noise of what we expect it to do."</blockquote>
+      <p class="about-text">His academic roots lie in Genetic Engineering and Biotechnology at Daffodil International University, Dhaka. But his intellectual territory extends far beyond institutional boundaries  — into philosophy of biology, systems thinking, microbial ecology, and the strange territory where mathematics meets metaphysics.</p>
+      <p class="about-text">He thinks in Bengali and English simultaneously — two registers of a single restless mind that finds home equally in population genetics textbooks and slow cinema, in the equations of Hardy-Weinberg equilibrium and the silence of a Rumi verse at 3 a.m.</p>
     </div>
     <div class="about-right reveal">
       <div class="interests-list">
@@ -287,19 +450,28 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
         <div class="int-item">Microbial Systems</div><div class="int-item">Theoretical Biology</div>
         <div class="int-item">Philosophy of Science</div><div class="int-item">Complexity Theory</div>
         <div class="int-item">Emergence</div><div class="int-item">Genetic Memory</div>
+        <div class="int-item">Information Theory</div><div class="int-item">Consciousness</div>
+        <div class="int-item">Slow Cinema</div><div class="int-item">Indian Classical Music</div>
       </div>
       <div class="bangla-box">
         <div class="sec-label">বাংলায় / In Bengali</div>
-        <p class="bangla-text">উদয়ের গবেষণার মূল প্রশ্ন একটাই — জীবন কীভাবে নিজেকে মনে রাখে? জিনের ভাষায়, বিবর্তনের গণিতে, এবং প্রতিটি কোষের নীরব স্মৃতিতে।</p>
+        <p class="bangla-text">উদয়ের গবেষণার মূল প্রশ্ন একটাই — জীবন কীভাবে নিজেকে মনে রাখে? জিনের ভাষায়, বিবর্তনের গণিতে, এবং প্রতিটি কোষের নীরব স্মৃতিতে। তিনি জৈবিক জটিলতাকে কেবল বিজ্ঞান হিসেবে নয়, একটি দার্শনিক অভিযান হিসেবে দেখেন — যেখানে প্রতিটি আবিষ্কার আরও গভীর প্রশ্নের দরজা খুলে দেয়।</p>
       </div>
     </div>
+  </section>
+  <hr class="div">
+
+  <section id="timeline" class="reveal">
+    <div class="sec-label">§ 02 — Academic Timeline</div>
+    <h2 class="sec-heading" style="margin-bottom: 4rem;">The <em>intellectual</em> trajectory.</h2>
+    <div class="timeline-container" id="timeline-container-target"></div>
   </section>
   <hr class="div">
 
   <section id="research">
     <div class="section-top">
       <div>
-        <div class="sec-label">§ 02 — Research Archive</div>
+        <div class="sec-label">§ 03 — Research Archive</div>
         <h2 class="sec-heading">Active <em>theoretical</em><br>territories.</h2>
       </div>
       <span class="see-all-btn" onclick="openArchive('research')">See All →</span>
@@ -311,7 +483,7 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
   <section id="publications">
     <div class="section-top">
       <div>
-        <div class="sec-label">§ 03 — Writings &amp; Publications</div>
+        <div class="sec-label">§ 04 — Writings &amp; Publications</div>
         <h2 class="sec-heading">Papers, essays,<br><em>theoretical</em> notes.</h2>
       </div>
       <span class="see-all-btn" onclick="openArchive('writings')">See All →</span>
@@ -320,10 +492,28 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
   </section>
   <hr class="div">
 
+  <section id="now-reading" class="reveal">
+    <div class="now-box">
+      <div class="sec-label">§ 05 — Now Page</div>
+      <h3 class="pub-title" style="font-style: normal; margin-top: 0.5rem;"><span class="now-status-pulse"></span>What I'm Doing Right Now</h3>
+      <ul class="now-list">
+        <li>Simulating population genetic drift using custom Python algorithms.</li>
+        <li>Deep diving into bacterial evolutionary mechanics and meiotic linkages.</li>
+        <li>Exploring structural aesthetics in minimalist web design.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="sec-label">§ 06 — Active Reading List</div>
+      <h3 class="pub-title" style="font-style: normal; margin-top: 0.5rem; margin-bottom: 1.5rem;">Curated Textbooks &amp; Literature</h3>
+      <div id="reading-list-container"></div>
+    </div>
+  </section>
+  <hr class="div">
+
   <section id="posters">
     <div class="section-top">
       <div>
-        <div class="sec-label">§ 04 — Posters &amp; Presentations</div>
+        <div class="sec-label">§ 07 — Posters &amp; Presentations</div>
         <h2 class="sec-heading">Visual <em>arguments</em><br>made public.</h2>
       </div>
       <span class="see-all-btn" onclick="openArchive('posters')">See All →</span>
@@ -333,59 +523,94 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
   <hr class="div">
 
   <section id="art">
-    <div class="sec-label">§ 05 — Art &amp; Photography</div>
-    <h2 class="sec-heading" style="margin-bottom:1rem">The <em>visual</em><br>research archive.</h2>
-    <p class="art-intro">A parallel laboratory — images as inquiry.</p>
-    <div class="art-series-title">Series I — Biological Abstraction</div>
-    <div class="art-grid reveal">
-      <div class="art-cell tall"><div class="art-overlay" style="opacity:1;"><div class="art-cell-title">Untitled I</div><div class="art-cell-meta">Microscopy · 2025</div></div></div>
-      <div class="art-cell"><div class="art-overlay"><div class="art-cell-title">Chromosome Spread</div><div class="art-cell-meta">Sketch · 2025</div></div></div>
-      <div class="art-cell placeholder"><div class="ph-inner">Image Coming Soon</div></div>
+    <div class="section-top">
+      <div>
+        <div class="sec-label">§ 08 — Art &amp; Photography</div>
+        <h2 class="sec-heading" style="margin-bottom:1rem">The <em>visual</em><br>research archive.</h2>
+      </div>
+      <span class="see-all-btn" onclick="openArchive('art')">See All →</span>
     </div>
+    <p class="art-intro">A parallel laboratory — images as inquiry. Microscopic textures, biological sketches, monochrome observations, and visual experiments that run alongside the theoretical work.</p>
+    <div class="art-grid reveal" id="home-art-grid"></div>
   </section>
   <hr class="div">
 
   <section id="notebook">
     <div class="nb-header reveal">
-      <div><div class="sec-label">§ 06 — Digital Notebook</div><h2 class="sec-heading">Fragments &amp; <em>thoughts</em>.</h2></div>
-      <div class="nb-status">Perpetually Incomplete</div>
-    </div>
-    <div class="nb-grid reveal">
-      <div class="nb-card">
-        <div><div class="nb-date">Fragment 001 · Genetics</div><p class="nb-body">Randomness, given enough time, becomes indistinguishable from design.</p></div>
-        <div class="nb-formula">Δp ≈ p(1−p)[s·h] + ε(drift)</div>
+      <div>
+        <div class="sec-label">§ 09 — Digital Notebook</div>
+        <h2 class="sec-heading">Fragments, <em>thoughts</em>,<br>unfinished proofs.</h2>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1rem;">
+        <div class="nb-status">Evolving / Perpetually Incomplete</div>
+        <span class="see-all-btn" onclick="openArchive('notebook')">See All →</span>
       </div>
     </div>
+    <div class="nb-grid reveal" id="home-notebook-grid"></div>
   </section>
   <hr class="div">
 
-  <section id="manifesto">
-    <div class="manifesto-inner">
-      <div class="sec-label">§ 07 — Manifesto</div>
-      <p class="m-body">I study genetics because I cannot accept that life is accidental without also believing that it is, in its accidentality, sublime. Every genome is an archive.</p>
-    </div>
-  </section>
-  <hr class="div">
+<section id="manifesto">
+  <div class="manifesto-inner">
+    <div class="sec-label">§ 07 — Manifesto</div>
+    <h2 class="sec-heading" style="margin-bottom:5rem">On living,<br><em>mutating</em>,<br>and remembering.</h2>
 
-  <section id="cinema">
-    <div class="sec-label">§ 08 — Cinema &amp; Sound</div>
-    <div class="cinema-grid reveal">
-      <div>
-        <div class="cinema-col-label">Cinematic References</div>
-        <div class="cinema-item"><div class="cinema-title">Stalker — Andrei Tarkovsky, 1979</div><div class="cinema-meta">Soviet Cinema</div></div>
-      </div>
-      <div>
-        <div class="cinema-col-label">Sound Laboratory</div>
-        <div class="cinema-item"><div class="cinema-title">Raga Yaman — Late Evening Practice</div></div>
-        <div class="wave-container" id="wave-container"></div>
-      </div>
+    <div class="m-num">I. On the Archive</div>
+    <p class="m-body">I study genetics because I cannot accept that life is accidental without also believing that it is, in its accidentality, sublime. Every genome is an archive. Every mutation is a sentence written by time into a manuscript that did not ask to be written. Every generation is a revision — incomplete, imprecise, and irreversible — of a text that began four billion years ago and has no final draft.</p>
+
+    <div class="m-break">"Science is not a collection of facts. It is a practice of sustained wonder, conducted with precision and without sentimentality."</div>
+
+    <div class="m-num">II. On Equilibrium</div>
+    <p class="m-body">I am drawn to population genetics because it is honest about uncertainty. The Hardy-Weinberg equilibrium exists only when nothing is happening — no selection, no mutation, no drift, no migration, no nonrandom mating. Real life is the perpetual violation of equilibrium. Real life is always mid-transition, always between states, always becoming something that it has not yet decided to be. I find this comforting. I find this true.</p>
+
+    <div class="m-num">III. On Deep Time</div>
+    <p class="m-body">I believe the most important questions in biology are not molecular. They are temporal. How does information persist across death? How does selection know what to select for, if the environment of selection is itself evolving? How does complexity maintain itself at the edge of thermodynamic dissolution, when everything tends toward disorder and yet life, obstinately, tends toward structure?</p>
+
+    <div class="m-break">"Evolution does not optimise — it satisfices, forever, across an infinite and shifting landscape of possible forms. It is not engineering. It is geology."</div>
+
+    <div class="m-num">IV. On Method</div>
+    <p class="m-body">I am also a student of cinema, of poetry, of silence. I do not think this is separate from science. Slow cinema teaches patience with duration — the same patience required to think in evolutionary time. Poetry teaches the compression of maximum complexity into minimum language. Philosophy teaches that every answer contains three new questions, which is also, structurally, the shape of a good experiment.</p>
+
+    <div class="m-num">V. On the Project</div>
+    <p class="m-body">I am building — slowly, incompletely, with full awareness that I may never finish — a personal theory of life. Not a textbook. Not a career. A way of seeing. A framework for attending, carefully and without flinching, to the extraordinary and still-unexplained fact that matter has learned to contemplate itself.</p>
+
+    <div class="m-break m-bangla">"আমি মৃত্যুকে ভয় পাই না। আমি ভয় পাই অমনোযোগকে — সেই জীবনকে যা নিজের বিস্ময়কে ভুলে যায়, এবং তারপরও চলতে থাকে, নিষ্প্রাণভাবে।"</div>
+
+</div>
+</section>
+<hr class="div">
+<section id="cinema">
+  <div class="section-top">
+    <div>
+      <div class="sec-label">§ 11 — Cinema &amp; Sound</div>
+      <h2 class="sec-heading">Perception,<br><em>duration</em>,<br>and silence.</h2>
     </div>
-  </section>
+    <span class="see-all-btn" onclick="openArchive('cinema')">See All →</span>
+  </div>
+
+  <div class="cinema-grid reveal">
+    <div>
+      <div class="cinema-col-label">Cinematic References — Observational Archive</div>
+      <div id="home-films-target"></div>
+    </div>
+
+    <div>
+      <div class="cinema-col-label">Sound Laboratory — Personal Practice</div>
+      <div id="home-sounds-target"></div>
+      <div class="wave-container" id="wave-container"></div>
+    </div>
+  </div>
+</section>
+<hr class="div">
 </div>
 
 <div id="archive-view" style="display: none;">
   <header class="inner-header">
-    <div class="breadcrumb"><span onclick="showHomeView()">Archive</span> — <span id="archive-breadcrumb-title" style="color: var(--graphite);">Category</span></div>
+    <div class="breadcrumb">
+      <span onclick="showHomeView()" style="display: inline-flex; align-items: center; gap: 6px;">← Back to Home</span> 
+      <span style="margin: 0 10px; color: var(--dust);">—</span> 
+      <span id="archive-breadcrumb-title" style="color: var(--graphite);">Category</span>
+    </div>
     <h1 class="sec-heading" id="archive-main-title">The full <em>visual</em> &amp;<br>public arguments.</h1>
   </header>
 
@@ -417,15 +642,15 @@ footer{padding:3.5rem 4rem;border-top:0.5px solid var(--border);display:flex;jus
 <script>
 const ARCHIVE_DATABASE = {
   research: [
-    { id: "001", title: "Mutation–Selection Balance in Finite Populations", desc: "Investigating the equilibrium conditions under which deleterious alleles persist across generations. Drawing on Hartl & Clark's frameworks.", tags: ["Population Genetics", "Allele Frequency"], type: "Theoretical" },
-    { id: "002", title: "Recombination Frequency & Chromosome Architecture", desc: "Mapping genetic linkage through recombination frequencies. Exploring how chromosomal structure constrains and enables evolutionary novelty.", tags: ["Genetic Mapping", "Linkage"], type: "Chromo-Genetics" },
-    { id: "003", title: "Microbial Genetics as Evolutionary Laboratory", desc: "Bacteria as the fastest evolutionary theatre known. Studying gene transfer and mutation rates in microbial populations.", tags: ["Microbiology", "LTEE"], type: "Microbial" },
-    { id: "004", title: "Emergence & Biological Complexity", desc: "How does irreducible complexity arise from molecular simplicity? Exploring systems-theoretic approaches to morphogenesis.", tags: ["Systems Biology", "Emergence"], type: "Theoretical" },
-    { id: "005", title: "Information Theory in Evolutionary Biology", desc: "The genome as a compressed information archive. What does Shannon entropy reveal about genetic diversity?", tags: ["Information Theory", "Entropy"], type: "Genomics" },
-    { id: "006", title: "The Biology of Consciousness — A Theoretical Inquiry", desc: "Long-term theoretical investigation into whether consciousness has evolutionary precursors.", tags: ["Philosophy", "Neuroscience"], type: "Philosophy" }
+    { id: "001", title: "Mutation–Selection Balance in Finite Populations", desc: "Investigating the equilibrium conditions under which deleterious alleles persist across generations. Drawing on Hartl & Clark's frameworks.", tags: ["Population Genetics", "Allele Frequency"], type: "Theoretical", status: "Active", methodology: "Deterministic Modelling" },
+    { id: "002", title: "Recombination Frequency & Chromosome Architecture", desc: "Mapping genetic linkage through recombination frequencies. Exploring how chromosomal structure constrains and enables evolutionary novelty.", tags: ["Genetic Mapping", "Linkage"], type: "Chromo-Genetics", status: "Completed", methodology: "Linkage Matrix Mapping" },
+    { id: "003", title: "Microbial Genetics as Evolutionary Laboratory", desc: "Bacteria as the fastest evolutionary theatre known. Studying gene transfer and mutation rates in microbial populations.", tags: ["Microbiology", "LTEE"], type: "Microbial", status: "Active", methodology: "In-silico Microbial Tracking" },
+    { id: "004", title: "Emergence & Biological Complexity", desc: "How does irreducible complexity arise from molecular simplicity? Exploring systems-theoretic approaches to morphogenesis.", tags: ["Systems Biology", "Emergence"], type: "Theoretical", status: "Drafting", methodology: "Complexity Math" },
+    { id: "005", title: "Information Theory in Evolutionary Biology", desc: "The genome as a compressed information archive. What does Shannon entropy reveal about genetic diversity?", tags: ["Information Theory", "Entropy"], type: "Genomics", status: "Active", methodology: "Shannon Coding Matrix" },
+    { id: "006", title: "The Biology of Consciousness — A Theoretical Inquiry", desc: "Long-term theoretical investigation into whether consciousness has evolutionary precursors.", tags: ["Philosophy", "Neuroscience"], type: "Philosophy", status: "Active", methodology: "Conceptual Architecture" }
   ],
   writings: [
-    { year: "2026", title: "REPRODUCTIVE DISEASES and REPRODUCTIVE FAILURE", meta: "Assignment • English • Animal Reproduction", desc: "MUTATION RATE, GENETIC LOAD AND REPRODUCTIVE DISEASES: A Mathematical Perspective on Reproductive Failure", link: "c:https://docs.google.com/document/d/1rwjTCpEpp5CLOLmyJMpZB2GjQoUA04NC/edit?usp=drive_link&ouid=103947755621638433853&rtpof=true&sd=true", type: "Assignments" },
+    { year: "2026", title: "REPRODUCTIVE DISEASES and REPRODUCTIVE FAILURE", meta: "Assignment • English • Animal Reproduction", desc: "MUTATION RATE, GENETIC LOAD AND REPRODUCTIVE DISEASES: A Mathematical Perspective on Reproductive Failure", link: "https://docs.google.com/document/d/1rwjTCpEpp5CLOLmyJMpZB2GjQoUA04NC/edit?usp=drive_link&ouid=103947755621638433853&rtpof=true&sd=true", type: "Assignments" },
     { year: "2025", title: "Population Genetics & Evolutionary Forces — After Hartl & Clark", meta: "Academic Paper · Bilingual · Python Simulation", desc: "A detailed paper on allele frequency dynamics, Hardy-Weinberg equilibrium violations, and mutation-selection balance.", link: "#", type: "Papers" },
     { year: "2025", title: "Microbial Genetics — Molecular Architecture of Systems", meta: "Academic Paper · Bilingual · Microbiology", desc: "A systematic account of genetic mechanisms across three microbial kingdoms: Bacterial, Viral & Yeast Systems.", link: "#", type: "Papers" },
     { year: "2025", title: "Reproductive Biology — Molecular Pathology", meta: "Academic Paper · Animal Reproduction · Simulation", desc: "An examination of reproductive diseases and failure across mammalian and farm animal systems.", link: "#", type: "Papers" },
@@ -438,6 +663,38 @@ const ARCHIVE_DATABASE = {
     { type: "presentation", label: "Course Presentation", title: "AI: Friend or Foe?", meta: "Fall(253) • DIU", desc: "A Presentation about AI and its ideological breakdown.", link: "https://docs.google.com/presentation/d/16IUJVdPp4HymrDvKfF2-0_71kf2XZmQcdOL7fE7CQaY/edit?usp=drivesdk" },
     { type: "poster", label: "Population Genetics Poster", title: "Allele Frequency Dynamics", meta: "Research Presentation Archive", desc: "Population genetics simulation poster.", link: "#" },
     { type: "presentation", label: "Seminar Presentation", title: "Microbial Genetics Seminar", meta: "CRISPR and LTEE Presentation", desc: "Detailed look into bacterial adaptive immunity systems and digital setups.", link: "#" }
+  ],
+  art: [
+    { title: "Untitled I", meta: "Microscopy · 2025", desc: "A high-contrast black and white image of a chromosome spread, abstracted to the point of near illegibility.", link: "#", label: "Biological Abstraction" },
+    { title: "Chromosome Spread", meta: "Sketch · 2025", desc: "A hand-drawn sketch of a chromosome spread, emphasizing the chaotic beauty of genetic material under the microscope.", link: "#", label: "Biological Abstraction" },
+    { title: "Field Notes – Dhaka, 2024", meta: "Photography - Black & White", desc: "A monochrome photograph capturing the textures and rhythms of daily life in Dhaka, reflecting the observational spirit of research.", link: "#", label: "Photography" },
+    { title: "Laboratory – Late Evening", meta: "Photography - 2025", desc: "A moody photograph of a laboratory space late at night, evoking the solitude and intensity of scientific inquiry.", link: "#", label: "Photography" }
+  ],
+  timeline: [
+    { timeframe: "2024 - Present", title: "Undergraduate Research Student", institution: "Daffodil International University", body: "Focusing heavily on Genetic Engineering, Population Genetics simulations, and theoretical architectures of biological systems." },
+    { timeframe: "Late 2024", title: "Independent Simulation Project", institution: "Bio-Informatics Self-Lab", body: "Formulated custom structural models to map violating factors of Hardy-Weinberg equilibrium under finite drifts." }
+  ],
+  readingList: [
+    { title: "Principles of Population Genetics", author: "Hartl & Clark", status: "Currently Reading", active: true },
+    { title: "Molecular Biology (5th Edition)", author: "Robert F. Weaver", status: "Completed Reference", active: false },
+    { title: "The Structure of Scientific Revolutions", author: "Thomas S. Kuhn", status: "Currently Reading", active: true }
+  ],
+  notebook: [
+    { id: "001", type: "Genetics", date: "Fragment 001 · Population Genetics · Drift", body: "What disturbs me about genetic drift is not its randomness — it is that randomness, given enough time, becomes indistinguishable from design. A fixed allele looks purposeful. A swept population looks adapted. This is, perhaps, how all meaning is made: through the patient filtering of chance across deep time.", formula: "Δp ≈ p(1−p)[s·h + s(1−h)·(1−p)] + ε(drift)" },
+    { id: "002", type: "Philosophy", date: "Fragment 002 · Philosophy & Biology", body: "রুমি লিখেছিলেন — নালের ক্রন্দন বিচ্ছেদের বেদনা। কিন্তু ডিএনএও কি বিচ্ছেদের কথা বলে না? প্রতিটি মিউটেশন একটি স্মৃতির পরিবর্তন। প্রতিটি প্রজন্ম একটি নতুন ভুলে যাওয়া — এবং একটি নতুন মনে রাখা।", formula: "// Rumi × Darwin: a theoretical bridge (in progress)" },
+    { id: "003", type: "Emergence", date: "Theoretical Observation · Emergence · Consciousness", body: '"Consciousness may not be what brains do — it may be what complex biological information-processing is."', formula: "", isWide: true },
+    { id: "004", type: "Microbiology", date: "Fragment 004 · Microbiology · Memory", body: "Bacteria have no memory — yet they remember. A lysogenic phage is a memory encoded in a genome. CRISPR is an immune memory that predates the immune system. All biological memory is, at its deepest level, just sequence: the past written in nucleotides, waiting to be read by a future that does not yet exist.", formula: "spacer acquisition → transcription → crRNA → interference" },
+    { id: "005", type: "Philosophy", date: "Open Question · Unanswered · Duration Unknown", body: "Is there a minimum unit of evolutionary experience? Bacteria respond to selection. Viruses adapt. Immune systems learn. At what threshold does adaptation become something we might, with full philosophical honesty, call knowing? I intend to keep this question open.", formula: "" },
+    { id: "006", type: "Information Theory", date: "Fragment 006 · Information Theory", body: "A genome is a compressed description of an organism's evolutionary past — a lossily encoded archive of every selection pressure its ancestors survived. The redundancy in the genetic code is not waste. It is error correction across geological time. Evolution was doing information theory before Shannon named it.", formula: "H(X) = −Σ p(x) log₂ p(x)  // Shannon, 1948" }
+  ],
+  cinema: [
+    { type: "Film", title: "Stalker — Andrei Tarkovsky, 1979", meta: "Soviet Cinema · 163 min · Slow Duration", desc: "Time in Tarkovsky moves like geological time — observable only if you stop expecting events. The Zone is mutation made visible: a space where cause and effect have been suspended, as they are in evolutionary deep time." },
+    { type: "Film", title: "Still Walking — Hirokazu Koreeda, 2008", meta: "Japanese Cinema · Observational · Inheritance", desc: "What cinema can do that biology cannot: render the transmission of grief and unspoken damage across generations in two hours. A different kind of heredity — cultural, emotional, epigenetic." },
+    { type: "Film", title: "The Tree of Life — Terrence Malick, 2011", meta: "American Cinema · Deep Time · Cosmological", desc: "The only film that places human memory inside geological and evolutionary time without metaphor — by simply showing both in sequence, as if they belong in the same sentence. They do." },
+    { type: "Film", title: "Turin Horse — Béla Tarr & Ágnes Hranitzky, 2011", meta: "Hungarian Cinema · 146 min · Entropy", desc: "Entropy as film form. Each day slightly more degraded than the last. The second law of thermodynamics presented as a domestic drama about the end of everything." },
+    { type: "Sound", title: "Raga Yaman — Late Evening Practice", meta: "Indian Classical · Flute · Personal Archive", desc: "The Yaman raga inhabits the hour between sunset and full darkness — a threshold state. Practicing it is practicing the discipline of attention to transition, which is also the practice of evolutionary thinking." },
+    { type: "Sound", title: "Raga Bhairav — Morning Inquiry", meta: "Indian Classical · Dawn Raga · Contemplative", desc: "Bhairav is meditative and slightly austere. It asks you to decelerate into the present moment before the day's conceptual categories arrive and begin their sorting work." },
+    { type: "Sound", title: "Ambient Laboratory — Late Night Sessions", meta: "Personal · Generative · Experimental", desc: "Field recordings processed and layered. Biological rhythm used as compositional structure — sound as a research methodology for thinking about periodicity in living systems." }
   ]
 };
 
@@ -447,11 +704,17 @@ let currentSubFilter = 'all';
 function renderHomePage() {
   const researchGrid = document.getElementById('home-research-grid');
   if(researchGrid) {
-    researchGrid.innerHTML = ARCHIVE_DATABASE.research.slice(0, 3).map(item => `
+    researchGrid.innerHTML = ARCHIVE_DATABASE.research.slice(0, 6).map(item => `
       <div class="r-card">
-        <div class="r-num">${item.id}</div>
-        <h3 class="r-title">${item.title}</h3>
-        <p class="r-desc">${item.desc}</p>
+        <div>
+          <div class="r-num">
+            <span>${item.id}</span>
+            <span class="r-status">${item.status}</span>
+          </div>
+          <h3 class="r-title">${item.title}</h3>
+          <p class="r-desc">${item.desc}</p>
+          <div class="r-methodology">Method: ${item.methodology}</div>
+        </div>
         <div class="r-tags">${item.tags.map(t => `<span class="r-tag">${t}</span>`).join('')}</div>
       </div>
     `).join('');
@@ -459,7 +722,7 @@ function renderHomePage() {
 
   const writingsList = document.getElementById('home-writings-list');
   if(writingsList) {
-    writingsList.innerHTML = ARCHIVE_DATABASE.writings.slice(0, 3).map(item => `
+    writingsList.innerHTML = ARCHIVE_DATABASE.writings.slice(0, 6).map(item => `
       <div class="pub-item">
         <div class="pub-year">${item.year}</div>
         <div>
@@ -468,6 +731,32 @@ function renderHomePage() {
           <p class="pub-desc">${item.desc}</p>
           ${item.link && item.link !== '#' ? `<a class="pub-link" href="${item.link}" target="_blank">View Paper →</a>` : ''}
         </div>
+      </div>
+    `).join('');
+  }
+
+  const timelineContainer = document.getElementById('timeline-container-target');
+  if(timelineContainer) {
+    timelineContainer.innerHTML = ARCHIVE_DATABASE.timeline.map(t => `
+      <div class="timeline-entry">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">${t.timeframe}</div>
+        <h3 class="timeline-title">${t.title}</h3>
+        <div class="timeline-institution">${t.institution}</div>
+        <p class="timeline-body">${t.body}</p>
+      </div>
+    `).join('');
+  }
+
+  const readingContainer = document.getElementById('reading-list-container');
+  if(readingContainer) {
+    readingContainer.innerHTML = ARCHIVE_DATABASE.readingList.map(book => `
+      <div class="reading-item">
+        <div class="reading-info">
+          <div class="reading-title">${book.title}</div>
+          <div class="reading-author">${book.author}</div>
+        </div>
+        <span class="reading-status ${book.active ? 'active' : ''}">${book.status}</span>
       </div>
     `).join('');
   }
@@ -485,6 +774,67 @@ function renderHomePage() {
       </div>
     `).join('');
   }
+
+  const artGrid = document.getElementById('home-art-grid');
+  if(artGrid) {
+    artGrid.innerHTML = ARCHIVE_DATABASE.art.slice(0, 4).map(item => `
+      <div class="art-cell">
+        ${item.link && item.link !== '#' ? `<img src="${item.link}" class="art-image" alt="${item.title}">` : ""}
+        <div class="art-overlay" style="opacity:1;">
+          <div class="art-cell-title">${item.title}</div>
+          <div class="art-cell-meta">${item.label} · ${item.meta}</div>
+          <p style="font-size: 0.8rem; color:var(--smoke); margin-top: 0.5rem; line-height: 1.4;">${item.desc}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  const notebookGrid = document.getElementById('home-notebook-grid');
+  if(notebookGrid) {
+    notebookGrid.innerHTML = ARCHIVE_DATABASE.notebook.slice(0, 6).map((item, index) => {
+      const raisedClass = index % 2 !== 0 ? 'raised' : '';
+      if(item.isWide) {
+        return `
+          <div class="nb-card wide" style="background:#222019">
+            <div class="nb-date">${item.date}</div>
+            <div class="nb-large">${item.body}</div>
+          </div>
+        `;
+      }
+      return `
+        <div class="nb-card ${raisedClass}">
+          <div>
+            <div class="nb-date">${item.date}</div>
+            <p class="nb-body">${item.body}</p>
+          </div>
+          ${item.formula ? `<div class="nb-formula">${item.formula}</div>` : ''}
+        </div>
+      `;
+    }).join('');
+  }
+  
+  const filmsTarget = document.getElementById('home-films-target');
+  const soundsTarget = document.getElementById('home-sounds-target');
+  
+  if(filmsTarget && soundsTarget) {
+    const homeFilms = ARCHIVE_DATABASE.cinema.filter(item => item.type === 'Film');
+    filmsTarget.innerHTML = homeFilms.map(item => `
+      <div class="cinema-item">
+        <div class="cinema-title">${item.title}</div>
+        <div class="cinema-meta">${item.meta}</div>
+        <div class="cinema-note">${item.desc}</div>
+      </div>
+    `).join('');
+
+    const homeSounds = ARCHIVE_DATABASE.cinema.filter(item => item.type === 'Sound');
+    soundsTarget.innerHTML = homeSounds.map(item => `
+      <div class="cinema-item">
+        <div class="cinema-title">${item.title}</div>
+        <div class="cinema-meta">${item.meta}</div>
+        <div class="cinema-note">${item.desc}</div>
+      </div>
+    `).join('');
+  }
 }
 
 function openArchive(moduleName) {
@@ -495,11 +845,10 @@ function openArchive(moduleName) {
   const homeView = document.getElementById('home-view');
   const archiveView = document.getElementById('archive-view');
 
+  window.scrollTo(0, 0);
   homeView.style.display = 'none';
   archiveView.style.display = 'block';
-  window.scrollTo(0, 0);
 
-  // স্মুথ ট্রানজিশন অ্যানিমেশন ক্লাস ট্রিগার
   archiveView.classList.remove('view-fade-in');
   void archiveView.offsetWidth; 
   archiveView.classList.add('view-fade-in');
@@ -533,6 +882,31 @@ function openArchive(moduleName) {
     `;
     document.getElementById('archiveGrid').className = "dynamic-grid-2";
   }
+  else if (moduleName === 'art') {
+    breadcrumbTitle.textContent = "Visual Archive";
+    mainTitle.innerHTML = "Image as inquiry,<br><em>Art</em><br> & Photography.";
+    tabsHTML += `
+      <button class="filter-tab" onclick="setSubFilter('Biological Abstraction', this)">Biological Abstraction</button>
+      <button class="filter-tab" onclick="setSubFilter('Photography', this)">Photography</button>
+    `;
+    document.getElementById('archiveGrid').className = "art-grid";
+  }
+  else if (moduleName === 'notebook') {
+    breadcrumbTitle.textContent = "Digital Notebook";
+    mainTitle.innerHTML = "Fragments, <em>thoughts</em>,<br>&amp; unfinished proofs.";
+    const types = [...new Set(ARCHIVE_DATABASE.notebook.map(i => i.type))];
+    tabsHTML += types.map(t => `<button class="filter-tab" onclick="setSubFilter('${t}', this)">${t}</button>`).join('');
+    document.getElementById('archiveGrid').className = "nb-grid";
+  }
+  else if (moduleName === 'cinema') {
+    breadcrumbTitle.textContent = "Cinema & Sound";
+    mainTitle.innerHTML = "Perception, <em>duration</em>,<br>and silence.";
+    tabsHTML += `
+      <button class="filter-tab" onclick="setSubFilter('Film', this)">Films</button>
+      <button class="filter-tab" onclick="setSubFilter('Sound', this)">Sound Lab</button>
+    `;
+    document.getElementById('archiveGrid').className = "cinema-grid";
+  }
 
   filterTabsContainer.innerHTML = tabsHTML;
   renderArchiveGrid();
@@ -550,15 +924,27 @@ function renderArchiveGrid() {
   const searchTerm = document.getElementById('searchBar').value.toLowerCase();
   const dataset = ARCHIVE_DATABASE[currentActiveModule];
 
+  if(!dataset) return;
+
   let filteredData = dataset.filter(item => {
     let matchTab = false;
     if (currentSubFilter === 'all') matchTab = true;
     else if (currentActiveModule === 'research' && item.type === currentSubFilter) matchTab = true;
     else if (currentActiveModule === 'writings' && item.type === currentSubFilter) matchTab = true;
     else if (currentActiveModule === 'posters' && item.type === currentSubFilter) matchTab = true;
+    else if (currentActiveModule === 'art' && item.label === currentSubFilter) matchTab = true;
+    else if (currentActiveModule === 'notebook' && item.type === currentSubFilter) matchTab = true;
+    else if (currentActiveModule === 'cinema' && item.type === currentSubFilter) matchTab = true;
 
-    const matchSearch = item.title.toLowerCase().includes(searchTerm) || 
-                        (item.desc && item.desc.toLowerCase().includes(searchTerm));
+    let matchSearch = false;
+    if (currentActiveModule === 'notebook') {
+      matchSearch = (item.body && item.body.toLowerCase().includes(searchTerm)) || 
+                    (item.date && item.date.toLowerCase().includes(searchTerm));
+    } else {
+      matchSearch = (item.title && item.title.toLowerCase().includes(searchTerm)) || 
+                    (item.desc && item.desc.toLowerCase().includes(searchTerm));
+    }
+    
     return matchTab && matchSearch;
   });
 
@@ -569,10 +955,13 @@ function renderArchiveGrid() {
 
   if (currentActiveModule === 'research') {
     grid.innerHTML = filteredData.map(item => `
-      <div class="r-card">
-        <div class="r-num">${item.id}</div>
-        <h3 class="r-title">${item.title}</h3>
-        <p class="r-desc">${item.desc}</p>
+      <div class="r-card" style="background:var(--ivory)">
+        <div>
+          <div class="r-num"><span>${item.id}</span><span class="r-status">${item.status}</span></div>
+          <h3 class="r-title">${item.title}</h3>
+          <p class="r-desc">${item.desc}</p>
+          <div class="r-methodology">Method: ${item.methodology}</div>
+        </div>
         <div class="r-tags">${item.tags.map(t => `<span class="r-tag">${t}</span>`).join('')}</div>
       </div>
     `).join('');
@@ -602,26 +991,99 @@ function renderArchiveGrid() {
       </div>
     `).join('');
   }
+  else if (currentActiveModule === 'art') {
+    grid.innerHTML = filteredData.map(item => `
+      <div class="art-cell" style="height: 250px;">
+        ${item.link && item.link !== '#' ? `<img src="${item.link}" class="art-image" alt="${item.title}">` : ""}
+        <div class="art-overlay" style="opacity:1;">
+          <div class="art-cell-title">${item.title}</div>
+          <div class="art-cell-meta">${item.label} · ${item.meta}</div>
+          <p style="font-size: 0.8rem; color:var(--smoke); margin-top: 0.5rem; line-height: 1.4;">${item.desc}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+  else if (currentActiveModule === 'notebook') {
+    grid.innerHTML = filteredData.map((item, index) => {
+      const raisedClass = index % 2 !== 0 ? 'raised' : '';
+      if(item.isWide) {
+        return `
+          <div class="nb-card wide" style="background:#222019; grid-column: span 2;">
+            <div class="nb-date">${item.date}</div>
+            <div class="nb-large">${item.body}</div>
+          </div>
+        `;
+      }
+      return `
+        <div class="nb-card ${raisedClass}">
+          <div>
+            <div class="nb-date">${item.date}</div>
+            <p class="nb-body">${item.body}</p>
+          </div>
+          ${item.formula ? `<div class="nb-formula">${item.formula}</div>` : ''}
+        </div>
+      `;
+    }).join('');
+  }
+  else if (currentActiveModule === 'cinema') {
+    const films = filteredData.filter(i => i.type === 'Film');
+    const sounds = filteredData.filter(i => i.type === 'Sound');
+
+    grid.innerHTML = `
+      <div class="cinema-grid" style="grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; width: 100%;">
+        <div>
+          <div class="cinema-col-label" style="${films.length === 0 ? 'display:none;' : ''}">Cinematic References</div>
+          ${films.map(item => `
+            <div class="cinema-item">
+              <div class="cinema-title">${item.title}</div>
+              <div class="cinema-meta">${item.meta}</div>
+              <div class="cinema-note">${item.desc}</div>
+            </div>
+          `).join('')}
+        </div>
+        <div>
+          <div class="cinema-col-label" style="${sounds.length === 0 ? 'display:none;' : ''}">Sound Laboratory</div>
+          ${sounds.map(item => `
+            <div class="cinema-item">
+              <div class="cinema-title">${item.title}</div>
+              <div class="cinema-meta">${item.meta}</div>
+              <div class="cinema-note">${item.desc}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
 }
 
 document.getElementById('searchBar').addEventListener('input', renderArchiveGrid);
 
-function showHomeView() {
+function showHomeView(targetSectionId) {
+  // অন্য ভিউ বা পেজ থেকে হোমে ব্যাক করার সময় স্ক্রল যেন একদম ওপরে টপে যায়
+  window.scrollTo(0, 0);
+
   const homeView = document.getElementById('home-view');
   const archiveView = document.getElementById('archive-view');
   
   archiveView.style.display = 'none';
   homeView.style.display = 'block';
   
-  // হোম ভিউ ব্যাক করার ট্রানজিশন অ্যানিমেশন
   homeView.classList.remove('view-fade-in');
   void homeView.offsetWidth; 
   homeView.classList.add('view-fade-in');
   
-  const hash = window.location.hash;
-  if (hash) {
-    const element = document.querySelector(hash);
-    if (element) element.scrollIntoView();
+  if (!targetSectionId && currentActiveModule) {
+    const targetId = currentActiveModule === 'writings' ? 'publications' : currentActiveModule;
+    const element = document.getElementById(targetId);
+    if (element) {
+      setTimeout(() => { element.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 80); 
+    }
+  } 
+  else if (targetSectionId) {
+    const element = document.getElementById(targetSectionId);
+    if (element) {
+      setTimeout(() => { element.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+    }
   }
 }
 
